@@ -4,11 +4,32 @@ A single-file web application for tracking stock, transfers and finances across 
 
 > Portfolio project. All rights reserved. The repository contains no real company, customer or employee data.
 
-## Screenshot
+## Screenshots
+
+The interface is in Turkish; English names are in brackets. Sign in with a user from your own Supabase `kullanicilar` table; the role decides which step of the approval chain you can act on. The data shown is demo data.
 
 ![Login screen (Giriş Yap)](docs/ekran/giris.png)
 
-The interface is in Turkish. Sign in with a user from your own Supabase `kullanicilar` table; the role decides which step of the approval chain you can act on.
+**Overview (Genel Bakış):** totals, low-stock alerts and recent movements.
+![Overview](docs/ekran/genel-bakis.png)
+
+**Stock list (Stok Listesi):** search, status and warehouse filters, edit and delete.
+![Stock list](docs/ekran/stok-listesi.png)
+
+**Warehouse status (Depo Durumu):** one tab per country warehouse.
+![Warehouse status](docs/ekran/depo-durumu.png)
+
+**Stock intake (Stok Girişi / Tedarik):** goods received are added to stock immediately and logged, no approval needed.
+![Stock intake](docs/ekran/stok-giris.png)
+
+**Transfer between warehouses (Depolar Arası Transfer):** goes through the 5-step approval chain before stock moves.
+![Transfer](docs/ekran/transfer.png)
+
+**Order / shipment comparison (Sipariş / Kargo Karşılaştır):** upload the two Excel exports and compare them.
+![Order and shipment comparison](docs/ekran/siparis-karsilastirma.png)
+
+**Thresholds (Eşik Değerleri):** per-warehouse low-stock limits.
+![Thresholds](docs/ekran/esik-degerleri.png)
 
 ## Features
 - **Stock:** per-warehouse stock lists, low-stock thresholds, batch (lot) tracking and expiry dates, periodic stock counts with manager approval
