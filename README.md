@@ -6,7 +6,9 @@ I built this to keep an eye on stock across several warehouses in different coun
 
 ## Try it without any setup (demo mode)
 
-Open `index.html?demo=1` (or the GitHub Pages link once it is enabled) and sign in. Demo mode needs no Supabase project and no keys: a small in-browser stand-in replaces the database, and everything is **made-up sample data** (no real company, customer or employee). Changes stay in your own browser only, so nobody else sees them and nothing shared can be deleted. The yellow bar at the bottom has a **Demo verisini sıfırla** button that restores the starting data.
+**Live demo: https://yusufydegirmenci.github.io/stock-tracking-app/?demo=1**
+
+Open the link above (or `index.html?demo=1` locally) and sign in. Demo mode needs no Supabase project and no keys: a small in-browser stand-in replaces the database, and everything is **made-up sample data** (no real company, customer or employee). Changes stay in your own browser only, so nobody else sees them and nothing shared can be deleted. The yellow bar at the bottom has a **Demo verisini sıfırla** button that restores the starting data.
 
 | Username | Role |
 |---|---|
