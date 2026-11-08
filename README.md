@@ -46,8 +46,20 @@ The interface is in Turkish. Sign in with a user from your own Supabase `kullani
 ## Roles
 `depo_kullanici` → `depo_mudur` → `stok_sorumlu` → `sistem_sorumlu` → `genel_mudur` (the approval chain follows this order).
 
-## Tech stack
-HTML · CSS · vanilla JavaScript · Supabase (PostgreSQL, Realtime) · SheetJS (Excel import/export)
+## Technology and architecture
+
+| Area | What is used | How |
+|---|---|---|
+| Languages | JavaScript (ES6+), HTML5, CSS3 | The whole app is one `index.html` file (about 3,600 lines): no framework and no build step. |
+| Database | **Supabase (PostgreSQL)** | All data lives in PostgreSQL tables (listed in Setup). The browser talks to it through the `supabase-js` v2 client, loaded from the jsDelivr CDN. |
+| Real-time sync | Supabase Realtime (`postgres_changes`) | The app subscribes to table changes, so every open session updates without a refresh. |
+| Excel import/export | SheetJS (`xlsx.js`), inlined in the page | Bulk stock entry, transfers and the order/shipment comparison read `.xlsx` files; the stock export writes one. |
+| Login and roles | Application-level login against the `kullanicilar` table | Not Supabase Auth. Passwords are SHA-256 hashed in the browser, and the user role decides the approval step. Add row-level security before any real use. |
+| Local storage | Browser `localStorage` | Remembers UI state and settings on the device. |
+| Backup | In-app backup and restore | The sidebar footer shows the last automatic backup. |
+| Hosting | Any static host | There is no server-side code of your own. |
+
+Data flow: browser, then `supabase-js`, then PostgreSQL over HTTPS, with Realtime pushing changes back to every connected browser.
 
 ## Setup
 1. Create a Supabase project.
