@@ -4,6 +4,12 @@ A single-file web application for tracking stock, transfers and finances across 
 
 > Portfolio project. All rights reserved. The repository contains no real company, customer or employee data.
 
+## Screenshot
+
+![Login screen (Giriş Yap)](docs/ekran/giris.png)
+
+The interface is in Turkish. Sign in with a user from your own Supabase `kullanicilar` table; the role decides which step of the approval chain you can act on.
+
 ## Features
 - **Stock:** per-warehouse stock lists, low-stock thresholds, batch (lot) tracking and expiry dates, periodic stock counts with manager approval
 - **Transfers and shipments:** inter-warehouse transfers and order-based stock deduction go through a **5-step sequential approval chain**; duplicate-shipment warnings; order/shipment comparison from Excel exports
