@@ -1,6 +1,6 @@
 # Multi-Warehouse Stock Tracking System
 
-A single-file web application for tracking stock, transfers and finances across several international warehouses, with a multi-step approval chain, multi-currency reporting and role-based access. The frontend is plain HTML/CSS/JavaScript; data and real-time sync run on **Supabase** (PostgreSQL + Realtime).
+I built this to keep an eye on stock across several warehouses in different countries. Transfers and shipments don't change the numbers until a chain of five people has approved them, and every warehouse reports its money in its own currency. The whole front end is one HTML file; the data and the live updates come from Supabase.
 
 > Portfolio project. All rights reserved. The repository contains no real company, customer or employee data.
 
@@ -46,8 +46,18 @@ The interface is in Turkish. Sign in with a user from your own Supabase `kullani
 ## Roles
 `depo_kullanici` → `depo_mudur` → `stok_sorumlu` → `sistem_sorumlu` → `genel_mudur` (the approval chain follows this order).
 
-## Tech stack
-HTML · CSS · vanilla JavaScript · Supabase (PostgreSQL, Realtime) · SheetJS (Excel import/export)
+## Technology and infrastructure
+
+| Part | What it uses | Notes |
+|---|---|---|
+| Language | HTML, CSS, JavaScript | No framework and no build step. Everything is in `index.html` (about 1.1 MB). |
+| Database | PostgreSQL on Supabase | Tables are listed in the Setup section below. The schema and row-level security policies are not in this repo yet. |
+| Live updates | Supabase Realtime | Several people can work at once and see each other's changes. |
+| Client library | `supabase-js` v2 | Loaded from the jsDelivr CDN. |
+| Excel | SheetJS | Bundled in the page. Used for stock export and for comparing order and shipment files. |
+| Fonts | Inter and JetBrains Mono | Loaded from Google Fonts. |
+| Hosting | Any static host | There is no server code of my own. Opening `index.html` in a browser also works. |
+| Login | The app's own `kullanicilar` table | Passwords are hashed with SHA-256, with a login lockout and a session timeout. There is no Supabase Auth here. |
 
 ## Setup
 1. Create a Supabase project.
