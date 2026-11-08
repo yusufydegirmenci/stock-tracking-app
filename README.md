@@ -4,11 +4,31 @@ A single-file web application for tracking stock, transfers and finances across 
 
 > Portfolio project. All rights reserved. The repository contains no real company, customer or employee data.
 
-## Screenshot
+## Screenshots
+
+The interface is in Turkish. Sign in with a user from your own Supabase `kullanicilar` table; the role decides which step of the approval chain you can act on. The screenshots use demo data.
 
 ![Login screen (Giriş Yap)](docs/ekran/giris.png)
 
-The interface is in Turkish. Sign in with a user from your own Supabase `kullanicilar` table; the role decides which step of the approval chain you can act on.
+| Overview (Genel Bakış) | Stock list (Stok Listesi) |
+|---|---|
+| ![Overview](docs/ekran/genel-bakis.png) | ![Stock list](docs/ekran/stok-listesi.png) |
+| **Warehouse status (Depo Durumu)** | **Stock entry (Stok Girişi / Tedarik)** |
+| ![Warehouse status](docs/ekran/depo-durumu.png) | ![Stock entry](docs/ekran/stok-girisi.png) |
+| **Inter-warehouse transfer (Depolar Arası Transfer)** | **Order / shipment comparison (Sipariş / Kargo Karşılaştır)** |
+| ![Transfer](docs/ekran/transfer.png) | ![Order and shipment comparison](docs/ekran/siparis-kargo.png) |
+| **Low-stock thresholds (Eşik Değerleri)** | **Warehouse selector (Aktif Depo)** |
+| ![Thresholds](docs/ekran/esik-degerleri.png) | ![Warehouse selector](docs/ekran/depo-secici.png) |
+
+## How to use
+
+1. **Sign in** and pick the active warehouse in the left sidebar, or leave it on *Tüm Depolar* (all warehouses).
+2. **Overview** shows total stock, critical items and pending approvals. A red banner lists every product below its threshold.
+3. **Stock list** supports search and filtering by status and warehouse; products can be edited or deleted from the row.
+4. **Stock entry / supply** adds stock immediately, with no approval step. Add a single product or upload an Excel file. Every entry is logged in the movement history.
+5. **Transfers** between warehouses and **order / shipment comparison** do not change stock right away. They enter the 5-step approval chain and stock is deducted only after all five approvers confirm in order. For the comparison, upload `siparis_export.xlsx` and `kargolanan_export.xlsx` (or try the demo data).
+6. **Thresholds** are set per warehouse and drive the low-stock alerts. Save after changing values.
+7. **Backup**: the sidebar footer shows the last automatic backup and offers manual backup and restore.
 
 ## Features
 - **Stock:** per-warehouse stock lists, low-stock thresholds, batch (lot) tracking and expiry dates, periodic stock counts with manager approval
